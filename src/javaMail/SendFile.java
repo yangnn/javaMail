@@ -58,7 +58,7 @@ public class SendFile {
     public static void main(String[] args) {
 		
 		String to = "yangnn_os@sari.ac.cn";
-		String from = "OA_Feedback@sari.ac.cn";
+		String from = "xxxk@sari.ac.cn";
 		String host = "smtp.cstnet.cn";
 		String filename = "D:\\workSpaceZKY\\emoe\\rosa-utils\\results\\tables\\simple_table.pdf";
 		boolean debug = true;
@@ -126,8 +126,8 @@ public class SendFile {
 	
 		    // send the message
 		    Transport ts = session.getTransport();
-		   //3¡¢Ê¹ÓÃÓÊÏäµÄÓÃ»§ÃûºÍÃÜÂëÁ¬ÉÏÓÊ¼ş·şÎñÆ÷£¬·¢ËÍÓÊ¼şÊ±£¬·¢¼şÈËĞèÒªÌá½»ÓÊÏäµÄÓÃ»§ÃûºÍÃÜÂë¸øsmtp·şÎñÆ÷£¬ÓÃ»§ÃûºÍÃÜÂë¶¼Í¨¹ıÑéÖ¤Ö®ºó²ÅÄÜ¹»Õı³£·¢ËÍÓÊ¼ş¸øÊÕ¼şÈË¡£
-		    ts.connect("smtp.cstnet.cn", "OA_Feedback@sari.ac.cn", "sari112233");
+		   //3ã€ä½¿ç”¨é‚®ç®±çš„ç”¨æˆ·åå’Œå¯†ç è¿ä¸Šé‚®ä»¶æœåŠ¡å™¨ï¼Œå‘é€é‚®ä»¶æ—¶ï¼Œå‘ä»¶äººéœ€è¦æäº¤é‚®ç®±çš„ç”¨æˆ·åå’Œå¯†ç ç»™smtpæœåŠ¡å™¨ï¼Œç”¨æˆ·åå’Œå¯†ç éƒ½é€šè¿‡éªŒè¯ä¹‹åæ‰èƒ½å¤Ÿæ­£å¸¸å‘é€é‚®ä»¶ç»™æ”¶ä»¶äººã€‚
+		    ts.connect("smtp.cstnet.cn", "xxx@sari.ac.cn", "xx");
 		    
 		    ts.sendMessage(msg, msg.getAllRecipients());
 		    ts.close();
