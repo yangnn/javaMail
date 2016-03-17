@@ -17,50 +17,50 @@ import javax.mail.internet.MimeMultipart;
 public class SendMail {
 
 	public static void main(String args[]){
-		String to = "yangnn_os@sari.ac.cn";//ÊÕ¼şÈË
-		String from = "OA_Feedback@sari.ac.cn";//·¢¼şÈË
-		String password = "sari112233";//·¢¼şÈËÓÊÏäÃÜÂë
-		String host = "smtp.cstnet.cn";//·şÎñÆ÷Ö÷»ú
-		boolean debug = true;//ÊÇ·ñĞèÒªdebug
+		String to = "yangnn_os@sari.ac.cn";//æ”¶ä»¶äºº
+		String from = "XXX@sari.ac.cn";//å‘ä»¶äºº
+		String password = "xxx";//å‘ä»¶äººé‚®ç®±å¯†ç 
+		String host = "smtp.cstnet.cn";//æœåŠ¡å™¨ä¸»æœº
+		boolean debug = true;//æ˜¯å¦éœ€è¦debug
 		
 		String filename = "D:\\books\\javamail.txt";
 		
-		//ÅäÖÃ·¢ËÍÓÊ¼şµÄ»·¾³ÊôĞÔ
+		//é…ç½®å‘é€é‚®ä»¶çš„ç¯å¢ƒå±æ€§
 		Properties props = new Properties();
 		props.put("mail.smtp.host", host);
 		props.put("mail.debug", debug);
 		
-		//´´½¨°üº¬ÓÊ¼ş·şÎñÆ÷µÄÍøÂçÁ¬½ÓĞÅÏ¢µÄSession¶ÔÏó
-		//SessionÀà¶¨ÒåÕû¸öÓ¦ÓÃ³ÌĞòËùĞèµÄ»·¾³ĞÅÏ¢¡£
-		//Session¶ÔÏó¸ù¾İÕâĞ©ÓÊ¼şĞÅÏ¢¹¹½¨ ÓÃÓÚÓÊ¼şÊÕ·¢µÄTransportºÍStore¶ÔÏó£¬ÒÔ¼°¿Í»§¶Ë´´½¨Message¶ÔÏóÊ±Ìá¹©ĞÅÏ¢Ö§³Ö
+		//åˆ›å»ºåŒ…å«é‚®ä»¶æœåŠ¡å™¨çš„ç½‘ç»œè¿æ¥ä¿¡æ¯çš„Sessionå¯¹è±¡
+		//Sessionç±»å®šä¹‰æ•´ä¸ªåº”ç”¨ç¨‹åºæ‰€éœ€çš„ç¯å¢ƒä¿¡æ¯ã€‚
+		//Sessionå¯¹è±¡æ ¹æ®è¿™äº›é‚®ä»¶ä¿¡æ¯æ„å»º ç”¨äºé‚®ä»¶æ”¶å‘çš„Transportå’ŒStoreå¯¹è±¡ï¼Œä»¥åŠå®¢æˆ·ç«¯åˆ›å»ºMessageå¯¹è±¡æ—¶æä¾›ä¿¡æ¯æ”¯æŒ
 		Session session = Session.getInstance(props);
 		
 		try {
-			//´´½¨´ú±íÓÊ¼şÄÚÈİµÄMessage¶ÔÏó
-			//message¶ÔÏó£º´´½¨ºÍ½âÎöÓÊ¼şµÄºËĞÄAPI£¬ËüµÄÊµÀı¶ÔÏó´ú±íÒ»·âµç×ÓÓÊ¼ş
+			//åˆ›å»ºä»£è¡¨é‚®ä»¶å†…å®¹çš„Messageå¯¹è±¡
+			//messageå¯¹è±¡ï¼šåˆ›å»ºå’Œè§£æé‚®ä»¶çš„æ ¸å¿ƒAPIï¼Œå®ƒçš„å®ä¾‹å¯¹è±¡ä»£è¡¨ä¸€å°ç”µå­é‚®ä»¶
 			Message msg = new MimeMessage(session);
 			msg.setFrom(new InternetAddress(from));
 			InternetAddress[] address = {new InternetAddress(to)};
 			msg.setRecipients(Message.RecipientType.TO, address);
-			msg.setSubject("java mail ²âÊÔ");
+			msg.setSubject("java mail æµ‹è¯•");
 			msg.setSentDate(new Date());
 			
-			//´´½¨Transport¶ÔÏó£¬Á´½Ó·şÎñÆ÷
-			//TransportÊÇ·¢ËÍÓÊ¼şµÄºËĞÄAPIÀà£¬ËüµÄÊµÀı¶ÔÏó´ú±íÁË ÊµÏÖÄ³¸öÓÊ¼ş·¢ËÍĞ­ÒéµÄÓÊ¼ş·¢ËÍ¶ÔÏó£¬ÀıÈçSMTPĞ­Òé
+			//åˆ›å»ºTransportå¯¹è±¡ï¼Œé“¾æ¥æœåŠ¡å™¨
+			//Transportæ˜¯å‘é€é‚®ä»¶çš„æ ¸å¿ƒAPIç±»ï¼Œå®ƒçš„å®ä¾‹å¯¹è±¡ä»£è¡¨äº† å®ç°æŸä¸ªé‚®ä»¶å‘é€åè®®çš„é‚®ä»¶å‘é€å¯¹è±¡ï¼Œä¾‹å¦‚SMTPåè®®
 			Transport ts = session.getTransport(); 
 			ts.connect("smtp.cstnet.cn", "OA_Feedback@sari.ac.cn", "sari112233");
 			
-			//·¢ËÍMessage
-			//·¢ËÍ¼òµ¥ÓÊ¼ş
+			//å‘é€Message
+			//å‘é€ç®€å•é‚®ä»¶
 			setTextContent(msg);
 			msg.saveChanges();
 			ts.sendMessage(msg, msg.getAllRecipients());
 			
-			//·¢ËÍÌí¼Ó¸½¼şµÄÓÊ¼ş
+			//å‘é€æ·»åŠ é™„ä»¶çš„é‚®ä»¶
 			setFileAsAttachment(msg,filename);
 			msg.saveChanges();
 			ts.sendMessage(msg, address);
-			//¹Ø±ÕÁ¬½Ó
+			//å…³é—­è¿æ¥
 			ts.close();
 		} catch (MessagingException mex) {
 			 // Prints all nested (chained) exceptions as well
@@ -78,27 +78,27 @@ public class SendMail {
 		}
 	}
 	
-	//·¢ËÍ¼òµ¥µÄ£¬Ö»°üº¬ÎÄ±¾µÄÓÊ¼ş
+	//å‘é€ç®€å•çš„ï¼ŒåªåŒ…å«æ–‡æœ¬çš„é‚®ä»¶
 	public static void setTextContent(Message msg) throws MessagingException{
-		String content = "·¢ËÍ¼òµ¥µÄ£¬Ö»°üº¬ÎÄ±¾µÄÓÊ¼ş";
+		String content = "å‘é€ç®€å•çš„ï¼ŒåªåŒ…å«æ–‡æœ¬çš„é‚®ä»¶";
 		msg.setContent(content, "text/html;charset=UTF-8");
 	}
 	
-	//·¢ËÍÌí¼Ó¸½¼şµÄÓÊ¼ş
+	//å‘é€æ·»åŠ é™„ä»¶çš„é‚®ä»¶
 	public static void setFileAsAttachment(Message msg,String filename) throws MessagingException, IOException{
-		//MimeBodyPart±íÊ¾ÓÊ¼şµÄÒ»¸öMIMEĞÅÏ¢
+		//MimeBodyPartè¡¨ç¤ºé‚®ä»¶çš„ä¸€ä¸ªMIMEä¿¡æ¯
 		MimeBodyPart mbp1 = new MimeBodyPart();
-		mbp1.setText("²âÊÔ·¢ËÍÌí¼Ó¸½¼şµÄÓÊ¼ş");
+		mbp1.setText("æµ‹è¯•å‘é€æ·»åŠ é™„ä»¶çš„é‚®ä»¶");
 		
 		MimeBodyPart mbp2 = new MimeBodyPart();
 		mbp2.attachFile(filename);
 		
-		//MultipartÀà±íÊ¾Ò»¸öÓÉ¶à¸öMIMEÏûÏ¢×éºÏ³ÉµÄ×éºÏMIMEÏûÏ¢
-		//´´½¨Multipart£¬½«BodyPartsÌí¼Óµ½Multipart
+		//Multipartç±»è¡¨ç¤ºä¸€ä¸ªç”±å¤šä¸ªMIMEæ¶ˆæ¯ç»„åˆæˆçš„ç»„åˆMIMEæ¶ˆæ¯
+		//åˆ›å»ºMultipartï¼Œå°†BodyPartsæ·»åŠ åˆ°Multipart
 		Multipart mp = new MimeMultipart();
 		mp.addBodyPart(mbp1);
 		mp.addBodyPart(mbp2);
-		//½«Multipart×÷ÎªÏûÏ¢µÄÄÚÈİ
+		//å°†Multipartä½œä¸ºæ¶ˆæ¯çš„å†…å®¹
 		msg.setContent(mp);
 	}
 }
