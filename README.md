@@ -1,0 +1,2 @@
+# javaMail
+利用javaMail发送一个简单邮件和一个含有附件的邮件
